@@ -1,0 +1,60 @@
+/* ===== Responsywność ===== */
+
+/* 700–1100 px: 2 kolumny */
+@media (max-width: 1100px) {
+  .grid-games { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav-btn:not(.nav-btn--help) span { display: none; }
+  .nav-btn:not(.nav-btn--help) { padding: .4rem; }
+  .game-bar { grid-template-columns: minmax(0, 1fr) auto auto auto; }
+  .game-bar__progress { grid-column: 1 / -1; grid-row: 2; }
+  .smc, .det, .escape { grid-template-columns: minmax(0, 1fr); }
+  .det__buckets { position: static; }
+  .menu-footer { grid-template-columns: 1fr 1fr; }
+  .menu-footer > .btn { grid-column: 1 / -1; justify-self: center; }
+  .mission-map { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.4rem; }
+  .mission-map::before { display: none; }
+  .choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .report-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .app-header__inner { flex-wrap: wrap; row-gap: .4rem; }
+  .brand__tag { display: none; }
+  .app-nav { order: 3; width: 100%; justify-content: space-between; margin-left: 0; }
+  .app-toggles { margin-left: auto; }
+}
+
+/* < 700 px: 1 kolumna */
+@media (max-width: 700px) {
+  body { font-size: 1rem; }
+  main { padding: 1.1rem .85rem 2rem; }
+  .grid-games, .grid-2 { grid-template-columns: minmax(0, 1fr); }
+  .nav-btn--help span { display: none; }
+  .nav-btn--help { padding: .4rem; }
+  .app-nav { justify-content: flex-start; }
+  .game-bar { grid-template-columns: minmax(0, 1fr) auto; gap: .6rem .9rem; padding: .7rem .8rem; }
+  .game-bar__title { grid-column: 1 / -1; }
+  .game-bar__progress { grid-column: 1 / -1; grid-row: auto; }
+  .game-bar__stat { align-items: flex-start; }
+  .game-bar__actions { grid-column: 1 / -1; justify-content: flex-end; }
+  .choice-grid { grid-template-columns: minmax(0, 1fr); }
+  .evidence-grid { grid-template-columns: minmax(0, 1fr); }
+  .menu-footer { grid-template-columns: minmax(0, 1fr); }
+  .mission-map { grid-template-columns: minmax(0, 1fr); }
+  .mission-node { flex-direction: row; text-align: left; padding: .4rem; }
+  .mission-node__num { width: 58px; height: 58px; font-size: 1.35rem; flex: none; }
+  .mission-node__status { justify-content: flex-start; }
+  .match-item { grid-template-columns: minmax(0, 1fr); }
+  .post--comment { margin-left: 1rem; }
+  .help-hero { flex-direction: column; align-items: flex-start; }
+  .modal { padding: 1.1rem; }
+  .modal__actions .btn { flex: 1 1 auto; }
+  .instr-head { flex-direction: column; align-items: flex-start; }
+  .card, .panel { padding: 1rem 1.05rem; }
+}
+
+/* Tryb projektora: duże ekrany */
+@media (min-width: 1600px) {
+  html { font-size: 106.25%; }
+  html[data-text-size="large"] { font-size: 125%; }
+}

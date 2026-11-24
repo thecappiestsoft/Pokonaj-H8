@@ -1,0 +1,370 @@
+/* ==========================================================================
+   Pokonaj H8 – wygląd w stylu komunikatora (3 warianty do wyboru)
+   data-skin="desktop" – komunikator na komputer (lista rozmów + czat)
+   data-skin="phone"   – czat w telefonie (wąska kolumna, kolorowy pasek)
+   data-skin="retro"   – komunikator retro (okienka, lista kontaktów)
+   Każdy wariant ma motyw jasny i ciemny; wysoki kontrast ma pierwszeństwo.
+   ========================================================================== */
+
+:root {
+  --bubble-in: var(--c-bg-2);
+  --bubble-out: var(--c-primary-soft);
+  --bubble-ok: var(--c-primary-soft);
+  --bubble-bad: var(--c-error-soft);
+  --chats-bg: var(--c-card);
+  --chat-active: var(--c-card-active);
+  --outside: var(--c-bg);
+  --title-bar: var(--c-primary);
+  --title-text: #fff;
+  --logo-bg: var(--c-primary);
+  --logo-fg: var(--c-on-primary);
+  --btn-radius: 20px;
+}
+
+/* ---------- Palety: komunikator na komputer ---------- */
+[data-skin="desktop"][data-theme="light"]:not([data-contrast="high"]) {
+  --c-bg: #f0f2f5; --c-bg-2: #e9ebee; --c-card: #ffffff; --c-card-active: #eef3fd;
+  --c-border: #dcdfe4; --c-border-strong: #c4c9d0;
+  --c-primary: #2f6fd6; --c-on-primary: #ffffff; --c-secondary: #2f6fd6; --c-on-secondary: #ffffff;
+  --c-accent: #7a5bc0; --c-warn: #9a5a00; --c-error: #c93636; --c-on-error: #ffffff; --c-success: #2e8b57;
+  --c-text: #1d1f23; --c-muted: #5f6670;
+  --c-primary-soft: #e3edfc; --c-secondary-soft: #e3edfc; --c-accent-soft: #efe9f9; --c-warn-soft: #fbf0dc; --c-error-soft: #fbe6e6;
+  --header-bg: #ffffff; --bg-grad: #f0f2f5;
+  --bubble-in: #e9ebee; --bubble-out: #2f6fd6; --bubble-ok: #e1f3e7; --bubble-bad: #fbe6e6;
+  --chats-bg: #ffffff; --chat-active: #e3edfc;
+}
+[data-skin="desktop"][data-theme="dark"]:not([data-contrast="high"]) {
+  --c-bg: #1e1f22; --c-bg-2: #18191c; --c-card: #2b2d31; --c-card-active: #35373c;
+  --c-border: #3a3c42; --c-border-strong: #4e5058;
+  --c-primary: #4b7fe0; --c-on-primary: #ffffff; --c-secondary: #6f9be8; --c-on-secondary: #0b1220;
+  --c-accent: #a08ad8; --c-warn: #e0a24a; --c-error: #ef6b6b; --c-on-error: #1e1f22; --c-success: #57b97c;
+  --c-text: #e9eaec; --c-muted: #a3a6ad;
+  --c-primary-soft: #26344d; --c-secondary-soft: #26344d; --c-accent-soft: #332d45; --c-warn-soft: #3d3222; --c-error-soft: #432a2c;
+  --header-bg: #2b2d31; --bg-grad: #1e1f22;
+  --bubble-in: #383a40; --bubble-out: #4b7fe0; --bubble-ok: #24392c; --bubble-bad: #432a2c;
+  --chats-bg: #232428; --chat-active: #35373c;
+}
+
+/* ---------- Palety: czat w telefonie ---------- */
+[data-skin="phone"][data-theme="light"]:not([data-contrast="high"]) {
+  --c-bg: #ece5dd; --c-bg-2: #f4f1ec; --c-card: #ffffff; --c-card-active: #f0f7f5;
+  --c-border: #dcd6cd; --c-border-strong: #bdb6ac;
+  --c-primary: #1f7a6c; --c-on-primary: #ffffff; --c-secondary: #1f7a6c; --c-on-secondary: #ffffff;
+  --c-accent: #7a5bc0; --c-warn: #8a5a00; --c-error: #c0392b; --c-on-error: #ffffff; --c-success: #1f7a6c;
+  --c-text: #111b21; --c-muted: #54656f;
+  --c-primary-soft: #d9fdd3; --c-secondary-soft: #e3f4f1; --c-accent-soft: #efe9f9; --c-warn-soft: #fff5d6; --c-error-soft: #fde7e4;
+  --header-bg: #1f7a6c; --bg-grad: #ece5dd;
+  --bubble-in: #ffffff; --bubble-out: #d9fdd3; --bubble-ok: #d9fdd3; --bubble-bad: #fde7e4;
+  --outside: #d1d7db;
+}
+[data-skin="phone"][data-theme="dark"]:not([data-contrast="high"]) {
+  --c-bg: #0b141a; --c-bg-2: #111b21; --c-card: #1f2c33; --c-card-active: #2a3942;
+  --c-border: #2a3942; --c-border-strong: #3b4a54;
+  --c-primary: #00a884; --c-on-primary: #0b141a; --c-secondary: #00a884; --c-on-secondary: #0b141a;
+  --c-accent: #a08ad8; --c-warn: #e5b45a; --c-error: #f07167; --c-on-error: #0b141a; --c-success: #00a884;
+  --c-text: #e9edef; --c-muted: #8696a0;
+  --c-primary-soft: #005c4b; --c-secondary-soft: #103b36; --c-accent-soft: #2d2840; --c-warn-soft: #3a3020; --c-error-soft: #3d2326;
+  --header-bg: #1f2c33; --bg-grad: #0b141a;
+  --bubble-in: #1f2c33; --bubble-out: #005c4b; --bubble-ok: #005c4b; --bubble-bad: #3d2326;
+  --outside: #070d11;
+}
+
+/* ---------- Palety: komunikator retro ---------- */
+[data-skin="retro"][data-theme="light"]:not([data-contrast="high"]) {
+  --c-bg: #d4dce8; --c-bg-2: #e9edf3; --c-card: #f6f7fa; --c-card-active: #dfe8f5;
+  --c-border: #8a9ab5; --c-border-strong: #5f7090;
+  --c-primary: #2b5797; --c-on-primary: #ffffff; --c-secondary: #2b5797; --c-on-secondary: #ffffff;
+  --c-accent: #6a4a9c; --c-warn: #8a5a00; --c-error: #b22222; --c-on-error: #ffffff; --c-success: #2a7a2a;
+  --c-text: #111111; --c-muted: #4a5568;
+  --c-primary-soft: #dfe8f5; --c-secondary-soft: #dfe8f5; --c-accent-soft: #ece5f5; --c-warn-soft: #fbf1d8; --c-error-soft: #f8e1e1;
+  --header-bg: #4a6fa5; --bg-grad: #d4dce8;
+  --bubble-in: #ffffff; --bubble-out: #dfe8f5; --bubble-ok: #e2f1e2; --bubble-bad: #f8e1e1;
+  --chats-bg: #eef2f8; --chat-active: #cfdcf0; --title-bar: #4a6fa5;
+  --btn-face: #e4e4e4; --btn-light: #ffffff; --btn-dark: #808080;
+}
+[data-skin="retro"][data-theme="dark"]:not([data-contrast="high"]) {
+  --c-bg: #1b2230; --c-bg-2: #212a3b; --c-card: #263042; --c-card-active: #2f3b52;
+  --c-border: #4a5a78; --c-border-strong: #6a7a98;
+  --c-primary: #7ea6e6; --c-on-primary: #0b1220; --c-secondary: #7ea6e6; --c-on-secondary: #0b1220;
+  --c-accent: #b29be0; --c-warn: #e5b45a; --c-error: #f08080; --c-on-error: #0b1220; --c-success: #7cc47c;
+  --c-text: #e6ebf3; --c-muted: #a8b3c7;
+  --c-primary-soft: #2f3b52; --c-secondary-soft: #2f3b52; --c-accent-soft: #352f4a; --c-warn-soft: #3a3220; --c-error-soft: #422a2e;
+  --header-bg: #2d4670; --bg-grad: #1b2230;
+  --bubble-in: #2f3b52; --bubble-out: #34486b; --bubble-ok: #2a3d2e; --bubble-bad: #422a2e;
+  --chats-bg: #212a3b; --chat-active: #34486b; --title-bar: #3b5a8c;
+  --btn-face: #34405a; --btn-light: #56637d; --btn-dark: #121722;
+}
+
+/* ==========================================================================
+   Wspólne dla wszystkich wariantów: płasko, bez gradientów i poświat
+   ========================================================================== */
+body { background: var(--outside); }
+body::before { display: none; }
+.kicker, .game-bar__kicker, .game-bar__statlabel, .game-card__num, .lock__num, .evidence__type,
+.table th, .stat__label, .feedback dt { text-transform: none; letter-spacing: 0; }
+.kicker { font-weight: 600; font-size: .9rem; color: var(--c-muted); }
+.splash .logo { width: 96px; height: 96px; filter: none; animation: none; }
+.splash__title { font-weight: 800; letter-spacing: 0; }
+.splash__title span { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--c-primary); }
+.splash__tagline { font-weight: 600; }
+.game-card::before { display: none; }
+.game-card:hover, .panel--button:hover { transform: none; box-shadow: none; border-color: var(--c-primary); }
+.btn--primary { box-shadow: none; }
+.btn--primary:hover, .choice:hover:not(:disabled):not([aria-disabled="true"]) { transform: none; filter: brightness(.95); }
+.progress__bar { background: var(--c-primary); }
+.level-panel__badge, .results__icon, .final-door__icon { background: var(--c-primary); }
+.campaign-badge { background: var(--c-primary); }
+.charter, .statement { background: var(--c-card); }
+.feed__head { background: var(--c-card); }
+.mission-map::before { background: var(--c-border-strong); }
+.ending-tile.is-current { box-shadow: 0 0 0 2px var(--c-primary); }
+.modal-backdrop { -webkit-backdrop-filter: none; backdrop-filter: none; }
+.panel, .card, .game-card, .game-bar { box-shadow: none; }
+.app-header { -webkit-backdrop-filter: none; backdrop-filter: none; }
+.brand .logo { width: 38px; height: 38px; }
+
+/* Układ: kolumna z listą rozmów + treść */
+.app-body { display: flex; align-items: stretch; width: 100%; flex: 1; }
+.app-body > main { flex: 1; min-width: 0; }
+.chats { display: none; }
+
+/* ==========================================================================
+   Lista rozmów (komputer i retro)
+   ========================================================================== */
+[data-skin="desktop"] .chats,
+[data-skin="retro"] .chats {
+  display: block;
+  width: 300px;
+  flex: none;
+  position: sticky;
+  top: 65px;
+  align-self: flex-start;
+  height: calc(100vh - 65px);
+  overflow-y: auto;
+  background: var(--chats-bg);
+  border-right: 1px solid var(--c-border);
+  padding-bottom: 1rem;
+}
+.chats__me { display: flex; align-items: center; gap: .45rem; padding: .75rem 1rem; font-size: .88rem; color: var(--c-muted); border-bottom: 1px solid var(--c-border); }
+.chats__head { padding: .85rem 1rem .3rem; font-size: .82rem; font-weight: 600; color: var(--c-muted); }
+.chats__list { list-style: none; margin: 0; padding: .25rem .45rem 0; }
+.chat {
+  display: flex; align-items: center; gap: .7rem;
+  width: 100%;
+  padding: .55rem .6rem;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--c-text);
+  text-align: left;
+}
+.chat:hover { background: var(--c-card-active); }
+.chat.is-active { background: var(--chat-active); }
+.chat__avatar {
+  width: 42px; height: 42px; flex: none;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: .85rem; font-weight: 700;
+  color: #fff;
+}
+.chat__avatar .icon { width: 1.2rem; height: 1.2rem; }
+.chat__avatar--0 { background: #2f6fd6; }
+.chat__avatar--1 { background: #c86b1f; }
+.chat__avatar--2 { background: #2e8b57; }
+.chat__avatar--3 { background: #7a5bc0; }
+.chat__avatar--4 { background: #b83b5e; }
+.chat__avatar--5 { background: #1f7a8c; }
+.chat__avatar--6 { background: #6b6f2a; }
+.chat__avatar--tool { background: var(--c-bg-2); color: var(--c-muted); }
+.chat__body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.chat__name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chat__last { font-size: .85rem; color: var(--c-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chat__status { display: none; font-size: .8rem; color: var(--c-muted); }
+.chat__dot { width: 10px; height: 10px; flex: none; border-radius: 50%; border: 2px solid var(--c-border-strong); }
+.chat__dot--completed { background: var(--c-success); border-color: var(--c-success); }
+.chat__dot--started { background: #e0a020; border-color: #e0a020; }
+.chat__dot--available { background: transparent; }
+
+/* ==========================================================================
+   Elementy rozmowy (dymki, szybkie odpowiedzi) – komputer i telefon
+   ========================================================================== */
+[data-skin="desktop"] .panel, [data-skin="desktop"] .card, [data-skin="desktop"] .game-card,
+[data-skin="phone"] .panel, [data-skin="phone"] .card, [data-skin="phone"] .game-card {
+  border-radius: 12px;
+  border: 1px solid var(--c-border);
+}
+[data-skin="desktop"] .btn, [data-skin="phone"] .btn { border-radius: var(--btn-radius); font-weight: 600; }
+[data-skin="desktop"] .seg, [data-skin="phone"] .seg { border-radius: 999px; }
+
+/* Pytanie jako przychodząca wiadomość */
+[data-skin="desktop"] .message-card, [data-skin="phone"] .message-card {
+  background: var(--bubble-in);
+  border: 0;
+  border-radius: 18px 18px 18px 4px;
+  max-width: 820px;
+}
+[data-skin="desktop"] .message-card__quote, [data-skin="phone"] .message-card__quote { border-left: 0; padding-left: 0; font-weight: 600; }
+/* Odpowiedzi jako „szybkie odpowiedzi” */
+[data-skin="desktop"] .hd .choice-grid, [data-skin="phone"] .hd .choice-grid { display: flex; flex-wrap: wrap; gap: .55rem; }
+[data-skin="desktop"] .hd .choice, [data-skin="phone"] .hd .choice { width: auto; min-height: 44px; }
+[data-skin="desktop"] .choice, [data-skin="phone"] .choice {
+  border-radius: 22px;
+  border: 1.5px solid var(--c-primary);
+  background: var(--c-card);
+  font-weight: 600;
+}
+[data-skin="desktop"] .choice__icon, [data-skin="phone"] .choice__icon { width: auto; height: auto; background: none; color: var(--c-primary); }
+[data-skin="desktop"] .choice.is-correct, [data-skin="phone"] .choice.is-correct { background: var(--bubble-ok); border-color: var(--c-success); }
+[data-skin="desktop"] .choice.is-wrong, [data-skin="phone"] .choice.is-wrong { background: var(--bubble-bad); border-color: var(--c-error); }
+/* Informacja zwrotna jako odpowiedź w czacie */
+[data-skin="desktop"] .feedback, [data-skin="phone"] .feedback {
+  border: 0;
+  border-radius: 18px 18px 18px 4px;
+  max-width: 820px;
+}
+[data-skin="desktop"] .feedback--ok, [data-skin="phone"] .feedback--ok { background: var(--bubble-ok); }
+[data-skin="desktop"] .feedback--bad, [data-skin="phone"] .feedback--bad { background: var(--bubble-bad); }
+/* Posty w KlasaNet */
+[data-skin="desktop"] .post, [data-skin="phone"] .post { border: 0; border-radius: 16px 16px 16px 4px; background: var(--bubble-in); }
+[data-skin="desktop"] .post--you { background: var(--bubble-out); color: #fff; border-radius: 16px 16px 4px 16px; margin-left: 2.5rem; }
+[data-skin="desktop"] .post--you .muted { color: rgba(255, 255, 255, .8); }
+[data-skin="phone"] .post--you { background: var(--bubble-out); border-radius: 16px 16px 4px 16px; margin-left: 2.5rem; }
+[data-skin="desktop"] .post--system, [data-skin="phone"] .post--system { background: transparent; border: 1px dashed var(--c-border-strong); border-radius: 10px; }
+
+/* ==========================================================================
+   Wariant I – komunikator na komputer
+   ========================================================================== */
+[data-skin="desktop"] .app-header { background: var(--header-bg); border-bottom: 1px solid var(--c-border); }
+[data-skin="desktop"] .app-header__inner,
+[data-skin="retro"] .app-header__inner { max-width: none; }
+[data-skin="desktop"] .app-nav .nav-btn:not(.nav-btn--help),
+[data-skin="retro"] .app-nav .nav-btn:not(.nav-btn--help) { display: none; }
+[data-skin="desktop"] main { max-width: none; margin: 0; padding: 1.4rem 1.6rem 2.5rem; }
+[data-skin="desktop"] .game-bar { border-radius: 12px; border: 1px solid var(--c-border); }
+[data-skin="desktop"] .app-footer { background: var(--c-card); }
+
+/* ==========================================================================
+   Wariant J – czat w telefonie
+   ========================================================================== */
+[data-skin="phone"] .app-header { background: var(--header-bg); border-bottom: 0; color: #fff; --logo-bg: #ffffff; --logo-fg: var(--header-bg); }
+[data-skin="phone"] .app-header__inner { max-width: 960px; }
+[data-skin="phone"] .brand__tag { display: none; }
+[data-skin="phone"] .brand__tag { color: rgba(255, 255, 255, .8); }
+[data-skin="phone"] .brand__name em { color: #fff; }
+[data-skin="phone"] .nav-btn { color: #fff; }
+[data-skin="phone"] .nav-btn span { display: none; }
+[data-skin="phone"] .nav-btn--help { border-color: rgba(255, 255, 255, .5); }
+[data-skin="phone"] .nav-btn:hover, [data-skin="phone"] .nav-btn[aria-current="page"] { background: rgba(255, 255, 255, .15); border-color: transparent; }
+[data-skin="phone"] .app-header .seg { background: rgba(0, 0, 0, .18); border-color: transparent; }
+[data-skin="phone"] .app-header .seg__btn { color: rgba(255, 255, 255, .8); }
+[data-skin="phone"] .app-header .seg__btn[aria-pressed="true"] { background: #fff; color: #1f7a6c; }
+[data-skin="phone"] .app-header .seg__sep { color: rgba(255, 255, 255, .35); }
+[data-skin="phone"] main {
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem .9rem 2rem;
+  background: var(--c-bg);
+  border-left: 1px solid var(--c-border);
+  border-right: 1px solid var(--c-border);
+  min-height: calc(100vh - 130px);
+}
+[data-skin="phone"] .grid-games, [data-skin="phone"] .grid-2, [data-skin="phone"] .menu-footer { grid-template-columns: minmax(0, 1fr); }
+[data-skin="phone"] .smc, [data-skin="phone"] .det, [data-skin="phone"] .escape, [data-skin="phone"] .report-grid { grid-template-columns: minmax(0, 1fr); }
+[data-skin="phone"] .choice-grid { grid-template-columns: minmax(0, 1fr); }
+[data-skin="phone"] .game-bar { grid-template-columns: minmax(0, 1fr) auto; border-radius: 12px; }
+[data-skin="phone"] .game-bar__title, [data-skin="phone"] .game-bar__progress, [data-skin="phone"] .game-bar__actions { grid-column: 1 / -1; }
+[data-skin="phone"] .game-bar__actions { justify-content: flex-end; }
+/* Karty gier jak wiersze listy czatów */
+[data-skin="phone"] .game-card { gap: .45rem; padding: .9rem 1rem; }
+[data-skin="phone"] .game-card__icon { border-radius: 50%; border: 0; background: var(--c-primary); color: var(--c-on-primary); width: 46px; height: 46px; }
+[data-skin="phone"] .game-card__meta { flex-direction: row; flex-wrap: wrap; gap: .2rem .9rem; }
+[data-skin="phone"] .app-footer { max-width: 640px; margin: 0 auto; width: 100%; background: var(--c-bg); border-left: 1px solid var(--c-border); border-right: 1px solid var(--c-border); }
+
+/* ==========================================================================
+   Wariant K – komunikator retro
+   ========================================================================== */
+[data-skin="retro"] body { font-family: Tahoma, Verdana, "Segoe UI", sans-serif; font-size: .95rem; }
+[data-skin="retro"] .app-header { background: var(--header-bg); color: #fff; border-bottom: 2px solid var(--c-border-strong); --logo-bg: #ffffff; --logo-fg: var(--header-bg); }
+[data-skin="retro"] .brand__tag { color: rgba(255, 255, 255, .85); }
+[data-skin="retro"] .brand__name em { color: #fff; }
+[data-skin="retro"] .nav-btn { color: #fff; border-radius: 2px; }
+[data-skin="retro"] .nav-btn--help { border-color: rgba(255, 255, 255, .6); }
+[data-skin="retro"] .nav-btn:hover { background: rgba(255, 255, 255, .15); }
+[data-skin="retro"] .app-header .seg { border-radius: 2px; background: var(--btn-face); border: 1px solid var(--btn-dark); padding: 2px; }
+[data-skin="retro"] .app-header .seg__btn { border-radius: 2px; color: var(--c-text); min-height: 32px; }
+[data-skin="retro"] .app-header .seg__btn[aria-pressed="true"] { background: var(--c-card); color: var(--c-text); box-shadow: inset 1px 1px 0 var(--btn-dark), inset -1px -1px 0 var(--btn-light); }
+[data-skin="retro"] main { max-width: none; margin: 0; padding: 1.2rem 1.4rem 2.5rem; }
+[data-skin="retro"] h1, [data-skin="retro"] h2, [data-skin="retro"] h3 { font-weight: 700; }
+
+/* Okna: panel z niebieskim paskiem tytułu */
+[data-skin="retro"] .panel, [data-skin="retro"] .card, [data-skin="retro"] .game-card, [data-skin="retro"] .game-bar {
+  border-radius: 2px;
+  border: 1px solid var(--c-border-strong);
+  padding: 1rem 1.1rem;
+}
+[data-skin="retro"] .panel > h2, [data-skin="retro"] .card > h2 {
+  margin: -1rem -1.1rem .9rem;
+  padding: .35rem .7rem;
+  background: var(--title-bar);
+  color: var(--title-text);
+  font-size: .98rem;
+}
+[data-skin="retro"] .panel > h2 .icon, [data-skin="retro"] .card > h2 .icon { color: var(--title-text); }
+[data-skin="retro"] .game-card__icon { border-radius: 2px; border: 1px solid var(--c-border-strong); background: var(--c-bg-2); }
+[data-skin="retro"] .message-card { border-radius: 2px; background: var(--bubble-in); }
+[data-skin="retro"] .message-card__quote { border-left-color: var(--title-bar); }
+
+/* Przyciski 3D jak w starych systemach */
+[data-skin="retro"] .btn, [data-skin="retro"] .choice {
+  border-radius: 2px;
+  border: 2px solid;
+  border-color: var(--btn-light) var(--btn-dark) var(--btn-dark) var(--btn-light);
+  background: var(--btn-face);
+  color: var(--c-text);
+  font-weight: 400;
+  box-shadow: none;
+}
+[data-skin="retro"] .btn:active, [data-skin="retro"] .choice:active { border-color: var(--btn-dark) var(--btn-light) var(--btn-light) var(--btn-dark); }
+[data-skin="retro"] .btn--primary { background: var(--title-bar); color: #fff; font-weight: 700; }
+[data-skin="retro"] .btn--danger { background: var(--c-error); color: var(--c-on-error); }
+[data-skin="retro"] .choice__icon { border-radius: 2px; }
+[data-skin="retro"] .choice.is-correct { background: var(--bubble-ok); }
+[data-skin="retro"] .choice.is-wrong { background: var(--bubble-bad); }
+[data-skin="retro"] .feedback { border-radius: 2px; border-width: 1px; }
+[data-skin="retro"] .post { border-radius: 2px; }
+[data-skin="retro"] .chip, [data-skin="retro"] .status, [data-skin="retro"] .reaction { border-radius: 2px; }
+[data-skin="retro"] .input, [data-skin="retro"] .select, [data-skin="retro"] .textarea {
+  border-radius: 0;
+  border: 2px solid;
+  border-color: var(--btn-dark) var(--btn-light) var(--btn-light) var(--btn-dark);
+}
+[data-skin="retro"] .progress, [data-skin="retro"] .progress__bar { border-radius: 0; }
+[data-skin="retro"] .modal { border-radius: 2px; border: 1px solid var(--c-border-strong); padding-top: 0; }
+[data-skin="retro"] .modal__head { margin: 0 -1.4rem .9rem; padding: .45rem .8rem; background: var(--title-bar); color: #fff; }
+[data-skin="retro"] .modal__icon { color: #fff; }
+[data-skin="retro"] .modal__title { font-size: 1.05rem; }
+
+/* Lista kontaktów zamiast czatów */
+[data-skin="retro"] .chats { font-size: .9rem; }
+[data-skin="retro"] .chat { border-radius: 0; padding: .3rem .6rem; gap: .5rem; }
+[data-skin="retro"] .chat__avatar { width: 22px; height: 22px; border-radius: 2px; font-size: .62rem; }
+[data-skin="retro"] .chat__avatar .icon { width: .9rem; height: .9rem; }
+[data-skin="retro"] .chat__last { display: none; }
+[data-skin="retro"] .chat__status { display: block; }
+[data-skin="retro"] .chat__dot { order: -1; }
+[data-skin="retro"] .chats__head { border-top: 1px solid var(--c-border); margin-top: .4rem; }
+
+/* ==========================================================================
+   Wąskie ekrany: lista rozmów chowa się, nawigacja wraca do nagłówka
+   ========================================================================== */
+@media (max-width: 900px) {
+  [data-skin="desktop"] .chats, [data-skin="retro"] .chats { display: none; }
+  [data-skin="desktop"] .app-nav .nav-btn:not(.nav-btn--help),
+  [data-skin="retro"] .app-nav .nav-btn:not(.nav-btn--help) { display: inline-flex; }
+  [data-skin="desktop"] main, [data-skin="retro"] main { padding: 1rem .85rem 2rem; }
+}
+@media (max-width: 700px) {
+  [data-skin="phone"] main, [data-skin="phone"] .app-footer { border-left: 0; border-right: 0; }
+  .seg--skin .seg__btn { min-width: 34px; padding: 0 .4rem; }
+}

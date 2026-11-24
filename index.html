@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light" data-skin="desktop" data-contrast="normal" data-text-size="normal" data-anim="on">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pokonaj H8 – aplikacja edukacyjna o przeciwdziałaniu hejtowi i cyberprzemocy.">
+  <title>Pokonaj H8</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/screens.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/skins.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści / Skip to content</a>
+  <header class="app-header" id="app-header"></header>
+
+  <div class="app-body">
+    <aside class="chats" id="app-chats"></aside>
+    <main id="main" tabindex="-1">
+      <noscript><p class="panel">Ta aplikacja wymaga włączonej obsługi JavaScript. / This app requires JavaScript.</p></noscript>
+    </main>
+  </div>
+
+  <footer class="app-footer" id="app-footer">
+    <p>© 2026 CappySoft.pl</p>
+  </footer>
+
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="false"></div>
+  <div id="modal-root"></div>
+
+  <!-- Namespace i narzędzia -->
+  <script src="js/core/namespace.js"></script>
+  <script src="js/components/Icons.js"></script>
+
+  <!-- Treści (lokalne pliki danych) -->
+  <script src="data/ui-strings.js"></script>
+  <script src="data/games.js"></script>
+  <script src="data/achievements.js"></script>
+  <script src="data/hejt-detector.js"></script>
+  <script src="data/social-media-scenarios.js"></script>
+  <script src="data/decision-stories.js"></script>
+  <script src="data/detective-cases.js"></script>
+  <script src="data/escape-room.js"></script>
+  <script src="data/campaign-missions.js"></script>
+  <script src="data/debate-topics.js"></script>
+
+  <!-- Usługi wspólne -->
+  <script src="js/core/I18n.js"></script>
+  <script src="js/core/StorageManager.js"></script>
+  <script src="js/core/SettingsManager.js"></script>
+  <script src="js/core/AudioManager.js"></script>
+  <script src="js/core/ScoreManager.js"></script>
+  <script src="js/core/ProgressManager.js"></script>
+  <script src="js/core/AchievementManager.js"></script>
+  <script src="js/core/ContentManager.js"></script>
+
+  <!-- Komponenty -->
+  <script src="js/components/Toast.js"></script>
+  <script src="js/components/Modal.js"></script>
+  <script src="js/components/Timer.js"></script>
+  <script src="js/components/ProgressBar.js"></script>
+  <script src="js/components/GameCard.js"></script>
+  <script src="js/core/UIManager.js"></script>
+
+  <!-- Aplikacja -->
+  <script src="js/core/GameManager.js"></script>
+  <script src="js/teacher/TeacherMode.js"></script>
+  <script src="js/core/Views.js"></script>
+  <script src="js/core/AppController.js"></script>
+
+  <!-- Moduły gier -->
+  <script src="js/games/hejt-detector/hejt-detector.js"></script>
+  <script src="js/games/social-media-challenge/social-media-challenge.js"></script>
+  <script src="js/games/twoja-decyzja/twoja-decyzja.js"></script>
+  <script src="js/games/detektywi-internetu/detektywi-internetu.js"></script>
+  <script src="js/games/escape-room/escape-room.js"></script>
+  <script src="js/games/misja-stop-hate/misja-stop-hate.js"></script>
+  <script src="js/games/bitwa-na-argumenty/bitwa-na-argumenty.js"></script>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
